@@ -1,0 +1,1102 @@
+/* ============================================================================
+   CENE GHL CONSOLIDATED STYLESHEET
+   Optimized & organized from ghl-global.css, cene-ghl-styles.css, ghl-light-mode.css
+   ============================================================================ */
+
+/* ============================================================================
+   1. CUSTOM FONTS
+   ============================================================================ */
+@font-face {
+  font-family: "Cene Serif";
+  src: url("https://storage.googleapis.com/msgsndr/YZ992ZerTuC2qZolTHsN/media/6924c2a2a6fefeb101492574.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cene Sans";
+  src: url("https://storage.googleapis.com/msgsndr/YZ992ZerTuC2qZolTHsN/media/6924c2a2e7b094c78a2464d9.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================================
+   2. CSS CUSTOM PROPERTIES (VARIABLES)
+   ============================================================================ */
+:root {
+  /* ----- Font Families ----- */
+  --cene-font-heading: "Cene Serif", "Cene Sans", sans-serif;
+  --cene-font-body: "Cene Sans", sans-serif;
+
+  /* ----- Brand Color Scale ----- */
+  --brand-50: color-mix(in srgb, var(--brand-600) 8%, transparent);
+  --brand-100: #ffffff;
+  --brand-200: #faf9f5;
+  --brand-300: #f2eedc;
+  --brand-400: #e8e6dc;
+  --brand-500: #c6613f;
+  --brand-600: #c6613f;
+  --brand-700: #702e18;
+  --brand-800: #401f14;
+  --brand-900: #000000;
+
+  /* ----- Primary Color Mapping ----- */
+  --primary-50: var(--brand-50);
+  --primary-100: var(--brand-100);
+  --primary-200: var(--brand-200);
+  --primary-300: var(--brand-300);
+  --primary-400: var(--brand-400);
+  --primary-500: var(--brand-500);
+  --primary-600: var(--brand-600);
+  --primary-700: var(--brand-700);
+  --primary-800: var(--brand-800);
+  --primary-900: var(--brand-900);
+
+  /* ----- Component Semantic Colors ----- */
+  --brand-primary: var(--brand-500);
+  --brand-secondary: var(--brand-700);
+  --brand-tertiary: var(--brand-800);
+  --border-color: hsl(30deg 3.3% 11.8% / 0.15);
+
+  /* ----- N-Component: Background Colors ----- */
+  --n-color: var(--brand-100);
+  --n-color-hover: var(--brand-200);
+  --n-color-pressed: var(--brand-400);
+  --n-color-focus: var(--brand-100);
+  --n-color-disabled: var(--brand-400);
+  --n-item-color-active: var(--brand-200);
+  --n-item-color-active-hover: var(--brand-600);
+  --n-item-color-active-collapsed: var(--brand-600);
+
+  /* ----- N-Component: Text Colors ----- */
+  --n-text-color: var(--brand-800);
+  --n-text-color-hover: var(--brand-900);
+  --n-text-color-pressed: var(--brand-700);
+  --n-text-color-focus: var(--brand-900);
+  --n-text-color-disabled: var(--brand-700);
+  --n-item-text-color-active: var(--brand-500);
+  --n-item-text-color-child-active: var(--brand-500);
+  --n-item-text-color-child-active-hover: var(--brand-500);
+  --n-item-text-color-active-hover: var(--brand-500);
+  --n-item-text-color-hover-horizontal: var(--brand-500);
+  --n-item-text-color-active-horizontal: var(--brand-500);
+  --n-item-text-color-child-active-horizontal: var(--brand-500);
+  --n-item-text-color-child-active-hover-horizontal: var(--brand-500);
+  --n-item-text-color-active-hover-horizontal: var(--brand-500);
+
+  /* ----- N-Component: Border Colors ----- */
+  --n-border: 1px solid var(--brand-700);
+  --n-border-active: var(--brand-500);
+  --n-border-hover: 1px solid var(--brand-900);
+  --n-border-pressed: 2px solid var(--brand-900);
+  --n-border-focus: 1px solid var(--brand-500);
+  --n-border-disabled: 1px solid var(--brand-700);
+
+  /* ----- N-Component: Icon Colors ----- */
+  --n-item-icon-color-active: var(--brand-500);
+  --n-item-icon-color-active-hover: var(--brand-500);
+  --n-item-icon-color-active-horizontal: var(--brand-500);
+  --n-item-icon-color-active-hover-horizontal: var(--brand-500);
+  --n-item-icon-color-hover-horizontal: var(--brand-500);
+  --n-item-icon-color-child-active: var(--brand-500);
+  --n-item-icon-color-child-active-hover: var(--brand-500);
+  --n-item-icon-color-child-active-horizontal: var(--brand-500);
+  --n-item-icon-color-child-active-hover-horizontal: var(--brand-500);
+
+  /* ----- N-Component: Arrow Colors ----- */
+  --n-arrow-color-active: var(--brand-500);
+  --n-arrow-color-active-hover: var(--brand-500);
+  --n-arrow-color-child-active: var(--brand-500);
+  --n-arrow-color-child-active-hover: var(--brand-500);
+
+  /* ----- N-Component: Misc ----- */
+  --n-rail-color-active: var(--brand-600);
+  --n-loading-color: var(--brand-900);
+  --n-box-shadow-focus: 0 0 0 2px var(--brand-50);
+  --n-close-icon-color: var(--brand-600);
+  --n-close-icon-color-hover: var(--brand-600);
+  --n-close-icon-color-pressed: var(--brand-600);
+  --n-close-icon-color-disabled: var(--brand-600);
+  --n-caret-color: var(--brand-600);
+  --n-ripple-color: var(--brand-700);
+  --n-box-shadow: 0px 1px 2px 0px var(--brand-600);
+  --n-outline-focus: 4px solid var(--brand-700);
+
+  /* ----- Login Page Variables ----- */
+  --custom-link-color: var(--brand-900);
+  --loginBtnColor: var(--brand-500);
+  --loginBtnHover: var(--brand-700);
+  --bodyBgColor: var(--brand-100);
+  --login-button-background-color: var(--brand-500);
+  --login-button-background-hover-color: var(--brand-700);
+  --login-button-text-color: var(--brand-100);
+
+  /* ----- Utilities ----- */
+  --success-100: var(--brand-900);
+  --tw-ring-color: var(--brand-400);
+  --border-radius-round: 100vw;
+  --border-radius-large: 1.5rem;
+  --border-radius-main: 1rem;
+  --border-radius-small: 0.25rem;
+}
+
+/* ============================================================================
+   3. BASE STYLES & TYPOGRAPHY
+   ============================================================================ */
+*,
+*::before,
+*::after {
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+body *:not(.fa):not(.fab):not(.fas),
+.hl-statistic-header .title,
+button,
+.bb-button,
+.bb-button._pendo-button-custom._pendo-button,
+.bb-button._pendo-button-primaryButton._pendo-button {
+  font-family: var(--cene-font-body) !important;
+}
+
+/* Headings - Serif Font */
+.agencyDashboardHeader,
+.topmenu-navtitle,
+div[role="heading"],
+p[role="heading"],
+p.hr-text.hr-text-4xl,
+p.text-xl,
+.menu-title,
+.font-sans,
+.sidebar-v2-agency .menu-title,
+.sidebar-v2-location .menu-title,
+.hl-media-title,
+.hl-title-container .title,
+.title,
+.title-extra-slots,
+.hl-display-sm-medium,
+h1, h2, h3, h4, h5, h6,
+#tab-header {
+  font-family: var(--cene-font-heading) !important;
+  font-weight: normal !important;
+}
+
+/* Typography & Headings */
+.hl-display-sm-medium,
+.hl-display-sm-medium#text,
+.text-[30px].font-medium.text-gray-900,
+.title,
+.hl-header,
+.hl-header-content,
+.hl-title-container,
+.topmenu-navtitle {
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+}
+
+.topmenu-nav {
+  white-space: nowrap;
+}
+
+aside header .topmenu-nav {
+  flex-wrap: wrap !important;
+}
+
+aside header .topmenu-nav .topmenu-navtitle {
+  flex-basis: 100% !important;
+}
+
+aside header .topmenu-nav .topmenu-navtitle,
+.sidebar-v2-agency .menu-title,
+.sidebar-v2-location .menu-title {
+  font-size: 2.5rem !important;
+  letter-spacing: 0;
+  line-height: 1.5em;
+}
+
+/* ============================================================================
+   4. MAIN LAYOUT & BACKGROUNDS
+   ============================================================================ */
+body,
+.app-loader,
+.bg-gray-100,
+.bg-\[\#EFF4FF\],
+.hl_topbar-tabs,
+.hl_topbar-tabs > .bg-white,
+.hl_wrapper.bg-white,
+.hl-loader-container,
+#launchpad-app-v2,
+#location-billing,
+#launchpad-app-v2[data-v-f5270004],
+#launchpad-app-v2[data-v-d784d519] {
+  background: unset !important;
+  background-color: var(--brand-200) !important;
+  transition: background-color 500ms ease;
+}
+
+/* White Background Elements */
+.bg-gray-25,
+.flex-page-bar[data-v-3d1835b6],
+.launchpad .bg-\[\#F9FAFB\],
+.bg-\[\#F9FAFB\],
+.hl_settings--body {
+  background: var(--brand-100) !important;
+}
+
+/* Transparent Background Elements */
+.hl_header,
+.hl_wrapper[data-v-6b587752],
+#launchpad-micro-app,
+.w-full .bg-gray-50,
+.w-full > div > section,
+.hr-config-provider .bg-gray-100,
+.contacts-list-view-container,
+.hl-header {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Content Wrappers */
+.location-dashboard-wrapper,
+.wrapper.opportunityPage,
+.hl_wrapper.bg-white.hl_without-topbar,
+.hl_sidebar-v2-open-container,
+.hl_wrapper > section,
+.w-full > section,
+.w-full .hl_wrapper.hl_topbar-tabs,
+.w-full .hl_wrapper .hl_wrapper--inner,
+main.hl_wrapper,
+#agency-reselling,
+#teamsPage {
+  position: relative;
+  border: 1px solid var(--brand-400) !important;
+  background: var(--brand-100);
+}
+
+/* Header & Wrapper Base Styles */
+.sidebar-v2-agency .hl_header,
+.sidebar-v2-agency .hl_wrapper,
+.sidebar-v2-location .hl_header,
+.sidebar-v2-location .hl_wrapper,
+.hl_affiliate--header {
+  top: 0;
+  right: 0;
+  border: none;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+/* Tab Content Width */
+.sidebar-v2-location .hl_wrapper--inner,
+.sidebar-v2-location .hl_topbar-tabs,
+.sidebar-v2-location .hl_wrapper {
+  width: 100%;
+}
+
+/* Collapsed Sidebar */
+.sidebar-v2-location.v2-collapse .hl_header--collapse,
+.sidebar-v2-location.v2-collapse .hl_wrapper,
+.sidebar-v2-location.v2-collapse .hl_wrapper--inner,
+.sidebar-v2-location.v2-collapse .hl_wrapper--inner.form-builder-list {
+  width: calc(100vw - 5rem);
+}
+
+.v2-collapse a.px-3 {
+  padding: 0.25rem !important;
+  aspect-ratio: 1/1;
+}
+
+/* Main Section Responsiveness */
+.v2-open .w-full > section > div,
+.v2-open section.w-full > div {
+  width: inherit;
+}
+
+@media (min-width: 640px) {
+  .v2-open .w-full > section > div,
+  .v2-open section.w-full > div {
+    width: calc(100vw - 3.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .v2-open .w-full > section > div,
+  .v2-open section.w-full > div {
+    width: calc(100vw - 14rem);
+  }
+}
+
+/* ============================================================================
+   5. SIDEBAR STYLING
+   ============================================================================ */
+/* Background & Layout */
+.sidebar-v2-agency #sidebar-v2 .default-bg-color,
+.sidebar-v2-agency #sidebar-v2.default-bg-color,
+.sidebar-v2-location #sidebar-v2 .default-bg-color,
+.sidebar-v2-location #sidebar-v2.default-bg-color {
+  background: transparent !important;
+  padding: 0;
+}
+
+aside .lead-connector {
+  padding: 0;
+}
+
+aside .overflow-hidden.lead-connector {
+  overflow: visible;
+}
+
+.sidebar-v2-agency aside,
+.sidebar-v2-location aside {
+  margin: 0;
+  outline: none;
+  z-index: 99;
+  height: calc(100svh - 2rem);
+}
+
+/* Logo */
+.agency-logo-container {
+  background-color: transparent;
+  margin-bottom: 0 !important;
+}
+
+.object-contain.agency-logo {
+  height: auto !important;
+  min-height: 3rem;
+}
+
+/* Menu Items Base */
+.sidebar-v2-location #sidebar-v2 #globalSearchOpener,
+.sidebar-v2-location #sidebar-v2 #quickActions,
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 #location-switcher-sidbar-v2,
+body[data-theme="default"] .sidebar-v2-agency #sidebar-v2 #location-switcher-sidbar-v2,
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 #backButtonv2,
+body[data-theme="default"] .sidebar-v2-agency #sidebar-v2 #backButtonv2 {
+  background: transparent;
+  border: 1px solid var(--border-color) !important;
+  backdrop-filter: blur(0.0625rem);
+  position: relative;
+}
+
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 #quickActions,
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 #globalSearchOpener,
+body[data-theme="default"] .sidebar-v2-agency #sidebar-v2 #quickActions,
+body[data-theme="default"] .sidebar-v2-agency #sidebar-v2 #globalSearchOpener {
+  background: transparent;
+  border-color: var(--brand-400);
+}
+
+/* Location Switcher */
+.sidebar-v2-agency #sidebar-v2 #location-switcher-sidbar-v2 .hl_v2-location_switcher,
+.sidebar-v2-location #sidebar-v2 #location-switcher-sidbar-v2 .hl_v2-location_switcher {
+  top: 0 !important;
+  right: -432px !important;
+}
+
+/* Sidebar Overlay */
+#sidebar-overlay,
+#sidebar-overlay[data-v-2485ce78],
+.permission-modal-backdrop {
+  background: transparent !important;
+  opacity: 1 !important;
+  backdrop-filter: blur(0.0625rem) brightness(0.9) !important;
+}
+
+/* Back Button */
+#sidebar-v2 #backButtonv2 {
+  border-radius: var(--border-radius-round);
+  padding: 0.5em 1em !important;
+  line-height: 1;
+  width: auto !important;
+  margin-left: 0.5rem;
+  margin-right: auto;
+}
+
+/* Quick Actions */
+#quickActions img {
+  filter: brightness(0);
+}
+
+#quickActions svg,
+#quickActions svg path,
+#quickActions svg g,
+#quickActions svg * {
+  stroke: black !important;
+  fill: transparent !important;
+}
+
+.sidebar-v2-location #sidebar-v2 #globalSearchOpener .hl_v2-quick-actions-list,
+.sidebar-v2-location #sidebar-v2 #quickActions .hl_v2-quick-actions-list {
+  padding: 1rem 0;
+  position: absolute;
+  left: 2.5rem;
+  top: -0.75rem;
+}
+
+.sidebar-v2-location #sidebar-v2 #globalSearchOpener .hl_v2-quick-actions-list .hl_quick-actions-list-container .hl_quick-actions-item,
+.sidebar-v2-location #sidebar-v2 #quickActions .hl_v2-quick-actions-list .hl_quick-actions-list-container .hl_quick-actions-item {
+  border-color: var(--primary-900);
+}
+
+/* Navigation */
+#sidebar-v2 .hl_nav-header-without-footer nav,
+.lead-connector nav {
+  padding: 0.5rem;
+}
+
+.px-3:has(.border-b) {
+  padding-left: 0 !important;
+}
+
+p.border-b {
+  line-height: 1em !important;
+  font-weight: bold;
+}
+
+/* Navigation Links */
+.hl_nav-header nav a,
+.hl_nav-header-without-footer nav a,
+.hl_nav-settings nav a,
+.hl_nav-settings nav a nav.flex-1 a,
+.n-tabs-tab .n-tabs-tab__label {
+  border-radius: var(--border-radius-small);
+  outline: none;
+  border: solid 1px transparent;
+  transition: margin 200ms ease, background-color 200ms ease, border-color 200ms ease, opacity 200ms ease;
+}
+
+/* Navigation Links Hover */
+.hl_nav-header nav a:hover,
+.hl_nav-settings nav a:hover,
+.hl_nav-header-without-footer nav a:hover,
+.n-menu .n-menu-item-content:not(.n-menu-item-content--disabled):hover::before {
+  background: transparent !important;
+  border: solid 1px var(--brand-600);
+  border-radius: var(--border-radius-small);
+  transition: border-color 300ms ease, background-color 300ms ease, color 300ms ease !important;
+}
+
+/* Navigation Links Active */
+.hl_nav-header nav a.active,
+.hl_nav-settings nav a.active,
+.hl_nav-header-without-footer nav a.active,
+.n-tabs-tab.n-tabs-tab--active .bg-white,
+.n-menu .n-menu-item-content.n-menu-item-content--selected::before,
+a.router-link-active[data-v-7992ec19].\!text-gray-700 {
+  background: transparent !important;
+  background-color: var(--brand-50) !important;
+  border: 1px solid var(--brand-600) !important;
+  border-radius: var(--border-radius-small);
+  margin: 0;
+  color: var(--brand-900) !important;
+  transition: border-color 300ms ease, background-color 300ms ease, color 300ms ease !important;
+}
+
+/* Sidebar Images Inversion */
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header nav a img,
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-header-without-footer nav a img,
+body[data-theme="default"] .sidebar-v2-location #sidebar-v2 .hl_nav-settings nav a img,
+body[data-theme="default"] .sidebar-v2-agency #sidebar-v2 .hl_nav-header nav a img,
+body[data-theme="default"] .sidebar-v2-agency #sidebar-v2 .hl_nav-header-without-footer nav a img,
+body[data-theme="default"] .sidebar-v2-agency #sidebar-v2 .hl_nav-settings nav a img {
+  filter: invert(1);
+}
+
+/* Navigation Settings */
+.sidebar-v2-location #sidebar-v2 .hl_nav-settings,
+.sidebar-v2-agency #sidebar-v2 .hl_nav-settings {
+  backdrop-filter: blur(16px);
+  position: sticky !important;
+  border-radius: var(--border-radius-main);
+  margin-top: auto;
+  margin-bottom: 24px;
+}
+
+/* Collapse Button */
+.sidebar-v2-agency #sidebar-v2 .hl_collapse-button,
+.sidebar-v2-location #sidebar-v2 .hl_collapse-button {
+  background-color: #ffffff;
+  color: var(--brand-900);
+}
+
+/* Sidebar Nav Header */
+#sidebar-v2 .hl_nav-header nav[aria-label="header"] {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Floating Menu Bar */
+.n-menu.n-menu--vertical {
+  border-radius: var(--border-radius-main) !important;
+}
+
+/* Top Menu Active State */
+.sidebar-v2-location .hl_header .topmenu-nav .topmenu-navitem.active,
+[aria-current="page"] {
+  border-color: var(--brand-600) !important;
+  font-weight: bold !important;
+  color: var(--brand-900) !important;
+}
+
+/* ============================================================================
+   6. BUTTONS & INTERACTIONS
+   ============================================================================ */
+/* Button Base Styles */
+button.bg-apple-500,
+button.n-button--primary-type,
+.hr-button,
+.hr-button--primary {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --n-border: 1px solid var(--brand-900) !important;
+  --n-border-hover: 1px solid var(--brand-700) !important;
+  --n-border-pressed: 1px solid var(--brand-900) !important;
+  --n-border-focus: 1px solid var(--brand-700) !important;
+  --n-border-disabled: 1px solid var(--brand-400) !important;
+}
+
+/* Primary Black Buttons */
+button.bg-apple-500,
+button.n-button--primary-type,
+button.ui-button.hr-button--primary-type,
+.bg-primary-600,
+button._pendo-button-primaryButton,
+.bg-curious-blue-500 {
+  color: #ffffff !important;
+  background: unset !important;
+  background-color: var(--brand-900) !important;
+  border: unset !important;
+  border-radius: var(--border-radius-main) !important;
+  font-weight: bold !important;
+
+  &:hover {
+    background-color: var(--brand-600) !important;
+  }
+}
+
+/* Button Primary Hover */
+button#pendo-button-57e2c74e:hover,
+.crm-highrise .hover\:bg-blue-600:hover {
+  background: unset !important;
+  background-color: var(--brand-600) !important;
+  font-weight: bold !important;
+}
+
+/* Secondary Black Button Outline */
+button.ui-button.hr-button--primary-type .hr-button__border,
+.hr-button .hr-button__state-border,
+.bg-primary-600 .hr-button__border,
+._pendo-button-custom,
+button#pendo-button-efcbdc25,
+.n-button.n-button--default-type.n-button--medium-type {
+  border-color: var(--brand-900) !important;
+  --n-button-border-color-active: var(--brand-900) !important;
+  border: 1px solid var(--brand-900) !important;
+  border-radius: var(--border-radius-main) !important;
+  background: unset !important;
+  background-color: transparent !important;
+  font-weight: bold !important;
+
+  &:hover {
+    border: 1px solid var(--brand-400) !important;
+    background-color: var(--brand-400) !important;
+    color: var(--brand-900) !important;
+    border-radius: var(--border-radius-main) !important;
+  }
+}
+
+/* Secondary Brand Button Outline */
+.hr-button .hr-button__state-border {
+  border-color: var(--brand-600) !important;
+}
+
+/* Secondary Buttons */
+.n-button--default-type:not(.icon-only):not(.hl-active-btn) {
+  --base-white: transparent;
+}
+
+.new-smartlist-ui #import-btn,
+.n-button.n-button--small-type,
+button.n-button.n-button--primary-type,
+button.n-button n-button--default-type {
+  filter: saturate(0);
+}
+
+/* Light Buttons */
+.sidebar-v2-location .hl_header .topmenu-nav .topmenu-navitem a,
+.sidebar-v2-location .hl_header .topmenu-nav .topmenu-navitem li a {
+  border: 1px solid transparent !important;
+}
+
+/* Button + Hover Effects */
+.bg-primary-50,
+.bg-primary-100,
+.views span.active,
+.count,
+.quick-filter-bar .advanced-container .button.active,
+.n-alert,
+.sidebar-v2-location .hl_header .topmenu-nav .topmenu-navitem a:hover,
+.sidebar-v2-location .hl_header .topmenu-nav .topmenu-navitem li a:hover,
+.views span#list-view-toggle-btn.active,
+.views span#kanban-toggle-btn.active {
+  border-radius: var(--border-radius-small);
+  color: var(--brand-900) !important;
+  background: transparent !important;
+  background-color: var(--brand-50) !important;
+  border: 1px solid var(--brand-600) !important;
+}
+
+/* Bulk Action */
+.bulk-action {
+  color: var(--brand-600) !important;
+  background: transparent !important;
+  background-color: var(--brand-50) !important;
+}
+
+/* Switch Toggle */
+.crm-highrise .bg-blue-500,
+.n-switch.n-switch--active .n-switch__rail {
+  background-color: var(--brand-600) !important;
+}
+
+/* Hover States */
+.hover\:bg-curious-blue-600:hover,
+.hover\:bg-curious-blue-900:hover {
+  background-color: var(--brand-700) !important;
+  border-color: var(--brand-700) !important;
+  color: var(--brand-100);
+  transition: all 0.3s ease-in;
+}
+
+/* ============================================================================
+   7. FORM CONTROLS & INPUTS
+   ============================================================================ */
+input,
+textarea,
+.rounded {
+  border-radius: var(--border-radius-main) !important;
+}
+
+/* Form Inputs Focus State */
+[type="date"],
+[type="datetime-local"],
+[type="email"],
+[type="month"],
+[type="number"],
+[type="password"],
+[type="search"],
+[type="tel"],
+[type="text"],
+[type="time"],
+[type="url"],
+[type="week"],
+select,
+textarea {
+  &:focus {
+    color: var(--primary-500) !important;
+  }
+}
+
+/* Selection States */
+.hl-select[data-v-17d144bf] .n-base-selection:not(.n-base-selection--disabled).n-base-selection--active .n-base-selection__state-border,
+.hl-select[data-v-17d144bf] .n-base-selection:not(.n-base-selection--disabled).n-base-selection--focus .n-base-selection__state-border,
+.hl-select[data-v-17d144bf] .n-base-selection:not(.n-base-selection--disabled):hover .n-base-selection__state-border,
+.hl-input-text:not(.n-input--disabled).n-input--focus[data-v-243d3ac2] .n-input__state-border {
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.125) !important;
+  border-color: var(--brand-900);
+}
+
+.ui-select[data-v-179848b0] .hr-base-selection:not(.hr-base-selection--disabled).hr-base-selection--active .hr-base-selection__state-border,
+.ui-select[data-v-179848b0] .hr-base-selection:not(.hr-base-selection--disabled).hr-base-selection--focus .hr-base-selection__state-border,
+.ui-select[data-v-179848b0] .hr-base-selection:not(.hr-base-selection--disabled):hover .hr-base-selection__state-border,
+.hr-base-selection__state-border {
+  filter: saturate(0);
+}
+
+/* Checkboxes & Radios */
+[type="checkbox"],
+[type="radio"],
+.hr-tabs.hr-tabs--line-type .hr-tabs-tab:hover,
+.hr-tabs.hr-tabs--bar-type .hr-tabs-tab:hover {
+  color: var(--brand-900) !important;
+}
+
+/* ============================================================================
+   8. TABS & PROGRESS INDICATORS
+   ============================================================================ */
+.hr-tabs__container.hr-tabs .hr-tabs-tab:hover {
+  background-color: transparent !important;
+}
+
+.hr-tabs .hr-tabs-tab {
+  transition: filter 300ms ease;
+}
+
+.hr-tabs.hr-tabs--line-type .hr-tabs-tab.hr-tabs-tab--active,
+.hr-tabs.hr-tabs--bar-type .hr-tabs-tab.hr-tabs-tab--active,
+.hr-tabs .hr-tabs-bar,
+.hr-tabs.hr-tabs--line-type .hr-tabs-tab:hover,
+.hr-tabs.hr-tabs--bar-type .hr-tabs-tab:hover {
+  --n-tab-text-color-active: var(--brand-900);
+  --n-bar-color: var(--brand-900);
+  transition: filter 300ms ease;
+  opacity: 1;
+}
+
+.hr-tabs-tab__label {
+  transition: opacity 300ms ease;
+}
+
+.hr-tabs-wrapper:hover .hr-tabs-tab__label {
+  opacity: 0.5;
+}
+
+.hr-tabs-wrapper .hr-tabs-tab-wrapper:hover .hr-tabs-tab__label {
+  opacity: 1 !important;
+}
+
+/* Progress Bar */
+.n-progress-graph-line-fill,
+.bg-curious-blue-600,
+.bg-curious-blue-900,
+.view.active::after {
+  background-color: var(--brand-500) !important;
+}
+
+.vs__dropdown-option--highlight,
+.n-tabs .n-tabs-bar,
+.n-date-panel .n-date-panel-dates .n-date-panel-date.n-date-panel-date--selected::after {
+  background-color: var(--brand-800) !important;
+}
+
+/* ============================================================================
+   9. COLOR & TEXT TRANSFORMATIONS
+   ============================================================================ */
+/* Focus Ring Colors */
+.focus\:ring-curious-blue-500:focus,
+.focus\:ring-indigo-500:focus,
+.focus\:ring-apple-500:focus {
+  --tw-ring-color: var(--brand-900) !important;
+}
+
+.focus\:border-indigo-500:focus {
+  border-color: var(--brand-900) !important;
+}
+
+/* Brand Text Colors */
+.--blue,
+.bg-\[\#004EEB\],
+.hl-loader-error .error-action,
+.inner-count,
+.n-menu .n-menu-item-content.n-menu-item-content--selected .n-menu-item-content-header,
+.hover\:text-primary-600:hover {
+  color: var(--brand-600) !important;
+}
+
+/* Primary Text Colors */
+.text-\[\#004EEB\],
+.text-\[\#004eeb\],
+.n-tabs.n-tabs--line-type .n-tabs-tab.n-tabs-tab--active,
+.n-tabs.n-tabs--bar-type .n-tabs-tab.n-tabs-tab--active,
+.text-primary-400,
+.text-primary-500,
+.text-primary-600,
+.text-primary-700,
+.text-blue-600,
+.text-blue-700,
+.text-curious-blue-500,
+.text-success,
+.views span.active,
+.n-alert .n-alert__icon,
+.n-tabs.n-tabs--line-type .n-tabs-tab:hover,
+.n-tabs.n-tabs--bar-type .n-tabs-tab:hover,
+.hl_pinned-container,
+.hl_controls .hl_controls--right .btn-group-sm > .btn .icon,
+.hl_controls .hl_controls--right .btn-sm .icon,
+.hl_controls .hl_controls--right .bootstrap-select > .btn.dropdown-toggle:after,
+.view.active,
+.text-gray-300 {
+  color: var(--primary-900) !important;
+}
+
+/* Icon Filters */
+.vue-echarts-inner svg,
+.vue-echarts-inner svg *,
+.vue-echarts-inner svg path,
+.vue-echarts-inner svg g,
+.lds-ring div,
+.icon {
+  filter: saturate(0) brightness(0.85);
+}
+
+i.hr-icon-inner.hr-icon {
+  color: inherit !important;
+}
+
+.hl-empty .hl-empty-icon-container .hl-empty-icon,
+.hl-empty-icon {
+  background-color: var(--brand-50) !important;
+  border: 1px solid var(--brand-600) !important;
+  color: var(--brand-600);
+  --primary-50: var(--brand-600);
+}
+
+.vue-echarts-inner svg path[fill="#53B1FD"] {
+  fill: black;
+}
+
+/* Badge Images */
+.n-badge.n-badge--dot img {
+  filter: brightness(0);
+}
+
+/* ============================================================================
+   10. BORDERS
+   ============================================================================ */
+.border-primary-500,
+.border-b-blue-700,
+.focus\:ring-curious-blue-500:focus,
+.focus\:border-curious-blue-500:focus,
+.sidebar-v2-location #sidebar-v2 #location-switcher-sidbar-v2 .hl_v2-location_switcher .hl_account.active,
+ul.header-ul li.active a,
+.\!border-primary-600,
+.border-b {
+  border-color: var(--border-color) !important;
+}
+
+/* Toolbar Border */
+.hl-toolbar.light {
+  border: 1px solid var(--brand-400);
+}
+
+/* Shapes & SVGs */
+.sidebar-v2-location #sidebar-v2 #location-switcher-sidbar-v2 .hl_v2-location_switcher #switcher-agency-switch svg rect,
+.hl_pinned-container svg,
+.hl_pinned-container svg path {
+  fill: var(--brand-900) !important;
+}
+
+/* Menu Dropdown */
+div[role="menu"] {
+  border: 1px solid var(--brand-400);
+  background-color: var(--brand-200);
+}
+
+/* ============================================================================
+   11. BADGES, ALERTS & NOTIFICATIONS
+   ============================================================================ */
+/* Badge */
+.n-badge .n-badge-sup {
+  --n-color: var(--brand-600) !important;
+}
+
+/* New Badge */
+.hl_new_badge,
+.hl_new_badge_top_menu,
+._pendo-step-container-styles,
+span.text-black.bg-yellow-400 {
+  background: unset !important;
+  background-color: var(--brand-200) !important;
+  color: var(--brand-600) !important;
+  border: 1px solid var(--brand-600) !important;
+  border-radius: var(--border-radius-small);
+}
+
+/* Alerts */
+.hr-alert-orange,
+.hr-alert,
+.hr-alert-orange.hr-alert-container.hr-alert-container__no-content.hr-alert {
+  --n-icon-color: var(--brand-600) !important;
+  --n-content-text-color: var(--brand-600) !important;
+  --n-color: var(--brand-200) !important;
+  --n-border: 1px solid var(--brand-600) !important;
+}
+
+/* Conversation Menu Item Active */
+.crm-highrise .menu-item.active {
+  background-color: var(--brand-50) !important;
+  border: 1px solid var(--brand-600) !important;
+  color: var(--brand-600);
+}
+
+/* ============================================================================
+   12. TOOLTIPS
+   ============================================================================ */
+._pendo-step-container-styles {
+  box-shadow: var(--brand-50) 0px 0px 20px 0px !important;
+}
+
+.pendo-tooltip-caret-border {
+  border: 2px solid var(--brand-600) !important;
+  height: 17px;
+  aspect-ratio: 1 / 1;
+  transform: rotate(45deg);
+  translate: -47% -50%;
+  left: 0 !important;
+  top: 50% !important;
+  background-color: var(--brand-200);
+  border-right: none !important;
+  border-top: none !important;
+}
+
+/* ============================================================================
+   13. ERROR & ALERT STATES
+   ============================================================================ */
+.hl_error {
+  background: linear-gradient(180deg, #ef3924 0%, #c92a27 100%) !important;
+  border-bottom: 3px solid #ef3924;
+}
+
+.hl_error .close-icon {
+  border: 1px solid var(--brand-900);
+  border-radius: var(--border-radius-round);
+  line-height: 1em;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================================================================
+   14. LOGIN PAGE
+   ============================================================================ */
+section.hl_login {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  height: 100vh;
+  background: var(--brand-900);
+}
+
+section.hl_login::before {
+  content: "";
+  filter: blur(5px);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-image: url("https://storage.googleapis.com/msgsndr/tcj5fH6obzgi4aK7gbJI/media/67ec6481e519ed1c82321e63.jpeg") !important;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.hl_login--header {
+  background: unset !important;
+  background-color: var(--brand-800) !important;
+  border-bottom: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 20px !important;
+  border-radius: var(--border-radius-main);
+}
+
+.hl_login--header .container-fluid a svg {
+  display: none;
+}
+
+.hl_login--header .container-fluid a::before {
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50"><style type="text/css">.st0{fill:%23FFFFFF;}.st1{fill:%2334A853;}</style><g><path class="st0" d="M96.8,30.2c-2.4,6.6-7.9,10.6-14.8,10.6c-7.6,0-15.8-6.1-15.8-15.9c0-9.1,7.5-15.7,15.7-15.7c3.7,0,11.9,1.7,14.9,10.8h-8c-0.8-1.5-2.5-4.3-6.9-4.3s-8.6,3.2-8.6,9.3c0,5.1,3.6,9.3,8.9,9.3c2.3,0,4.7-1.1,6.6-4.1C88.8,30.2,96.8,30.2,96.8,30.2z M107.5,28.2c0.3,1.9,3.1,6.1,8.2,6.1c3.2,0,5.5-1.3,6.8-3.8h7.5c-1.7,5.3-7.3,10.3-14.3,10.3c-9,0-15.6-7.1-15.6-15.7s6.2-15.9,15.6-15.9s15.3,8,15.3,15.4c0,1.4-0.2,2.6-0.4,3.6L107.5,28.2L107.5,28.2L107.5,28.2z M123.7,22.5c-0.8-4.8-4.2-6.8-8-6.8c-2.9,0-7.1,1.3-8.4,6.8H123.7z M135.5,10.2h6.6v2.6c1.2-1.1,3.6-3.6,8.1-3.6c2.6,0,6.4,1.1,8.9,4.1c2.7,3.3,2.7,8.2,2.7,10.5v16h-7.1V25.2c0-2.5,0-9.5-6-9.5c-1.3,0-3.6,0.6-4.9,2.6c-1.3,1.8-1.3,4.9-1.3,7.4v14.1h-7.1L135.5,10.2L135.5,10.2L135.5,10.2z M173.7,28.2c0.3,1.9,3.1,6.1,8.2,6.1c3.1,0,5.5-1.3,6.8-3.8h7.5c-1.7,5.3-7.3,10.3-14.3,10.3c-9,0-15.6-7.1-15.6-15.7s6.2-15.9,15.6-15.9s15.3,8,15.3,15.4c0,1.4-0.2,2.6-0.4,3.6L173.7,28.2L173.7,28.2L173.7,28.2z M189.9,22.5c-0.8-4.8-4.2-6.8-8-6.8c-2.9,0-7.1,1.3-8.4,6.8H189.9z"/><path class="st0" d="M27.2,0.6C13.7,0.6,2.8,11.5,2.8,25s10.9,24.4,24.4,24.4S51.5,38.5,51.5,25S40.6,0.6,27.2,0.6z"/><g><path class="st1" d="M33.1,25c-3.3,0-5.9-2.6-5.9-5.9c0-1.1,0.4-2.1,0.8-2.9c-0.2,0-0.5,0-0.8,0c-4.9,0-8.8,3.9-8.8,8.8s4,8.8,8.8,8.8c5,0,8.9-4,8.9-8.8c0-0.3,0-0.5,0-0.8C35.1,24.6,34.1,25,33.1,25z"/><path class="st1" d="M27.2,0.6C13.7,0.6,2.8,11.5,2.8,25s10.9,24.4,24.4,24.4S51.5,38.5,51.5,25S40.6,0.6,27.2,0.6z M27.2,41.5c-9.1,0-16.5-7.4-16.5-16.5S18.1,8.5,27.2,8.5S43.7,15.9,43.7,25S36.3,41.5,27.2,41.5z"/></g></g></svg>');
+  width: 10rem;
+  height: auto;
+  display: inline-block;
+  position: relative;
+}
+
+div.hl_login--body {
+  background: unset !important;
+  background-color: var(--brand-100) !important;
+  border-radius: var(--border-radius-main) !important;
+}
+
+.hl_login--body .card {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.hl_login--body .card .card-body {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.hl_login .form-control {
+  background-color: var(--brand-100) !important;
+  font-size: 0.875rem;
+  color: var(--brand-900);
+  border: 1px solid var(--brand-400) !important;
+  border-radius: var(--border-radius-small) !important;
+  padding: 10px !important;
+}
+
+.hl_login--body .login-card-heading {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.hl_login--body .heading2 {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.hl_login .button-holder.form-group {
+  margin: 10px auto !important;
+}
+
+.hl_login .btn.btn-blue,
+.hl_login .btn.btn-blue:active,
+.hl_login .btn.btn-blue:focus,
+.hl_login button {
+  background-color: var(--brand-900);
+  border-color: var(--brand-900);
+  color: var(--brand-100);
+  min-height: 55px;
+  transition: all 0.3s ease-in;
+}
+
+.hl_login .btn.btn-blue:hover {
+  background-color: var(--brand-700) !important;
+  border-color: var(--brand-700) !important;
+  color: var(--brand-100);
+  transition: all 0.3s ease-in;
+}
+
+/* ============================================================================
+   15. UTILITIES & MISCELLANEOUS
+   ============================================================================ */
+a {
+  color: inherit !important;
+}
+
+.icon-pencil {
+  color: var(--brand-800) !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a !important;
+}
+
+/* ============================================================================
+   16. HIDDEN ELEMENTS
+   ============================================================================ */
+#location-dashboard_banner--wordpress-promo-container,
+#location-dashboard_banner--yext-promo-container,
+#sb_launchpad,
+.n-base-selection .n-base-selection__border,
+.n-base-wave,
+.n-button__border,
+.n-button__state-border,
+.hr-base-selection__border,
+.pipeline-ribbon .left-box,
+.hr-button__border,
+.pendo-tooltip-caret.pendo-tooltip-caret--right {
+  display: none !important;
+}
